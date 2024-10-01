@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.24+commit.e11b9ed9"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -11,6 +11,11 @@
 						"internalType": "address payable",
 						"name": "_owner",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_service_fee",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -113,6 +118,32 @@
 				],
 				"stateMutability": "payable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -130,7 +161,7 @@
 		"compilationTarget": {
 			"contracts/MinimalProxy.sol": "MinimalProxy"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -143,11 +174,11 @@
 	},
 	"sources": {
 		"contracts/MinimalProxy.sol": {
-			"keccak256": "0x2e091ade0c4522cc7eb1ce8fdf34374addc40564588210498df92948e7e91ce7",
+			"keccak256": "0xea62162523d517557753a869a41de1babde020e80ea6bf6289d89007026a0c85",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6d3b82628565ff84d938009b5d2697c24449d0168b6a146102f5ba17498028f3",
-				"dweb:/ipfs/QmQQ5TLGKzCcc9rs3sBpdrrjq7qFoaYrJF9gj1wB9umcT5"
+				"bzz-raw://1063f1ee3844e7504525009715278e029509d2d3a78fa75fcef0a9e1bbcd7361",
+				"dweb:/ipfs/QmSYjxpfRUEAmGqZUY75dbAaQGjz7e7H1wSCasbLC8sQrS"
 			]
 		}
 	},

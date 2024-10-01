@@ -3,11 +3,13 @@ pragma solidity ^0.8.24;
 
 contract MinimalProxy {
     event ProxyDeployed(address proxyAddress);
+    uint256 public fee;
 
     address payable public Owner ;
 
-    constructor(address payable  _owner){
+    constructor(address payable  _owner, uint256 _service_fee){
         Owner = _owner;
+        fee = _service_fee;
     }
     
     modifier onlyOwner() {
@@ -26,7 +28,7 @@ contract MinimalProxy {
         bool _isBurnable,
         bool _isPausable
     ) external payable  returns (address result) {
-        require(msg.value > 0.15 ether, "Insufficient Amount to Pay");
+        require(msg.value >= fee, "Insufficient Amount to Pay");
         Owner.transfer(msg.value);
         bytes20 targetBytes = bytes20(target);
         
@@ -65,6 +67,10 @@ contract MinimalProxy {
 
         function _transferOwnership(address payable  _newOwner) public onlyOwner{
             Owner = _newOwner;
+    }
+
+        function setFee(uint256 newFee) public  onlyOwner {
+        fee = newFee;
     }
 }
 
